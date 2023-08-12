@@ -1,3 +1,4 @@
+import 'package:blog_mobile/views/regis_page/screen.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
@@ -162,7 +163,14 @@ Widget _loginButton(
         children: [
           const Text('Don\'t have an account?'),
           TextButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (BuildContext context) => const RegisPage(),
+                ),
+              );
+            },
             child: const Text(
               'Register now',
               style: TextStyle(

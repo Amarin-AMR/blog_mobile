@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 // External Modules
 import 'package:provider/provider.dart';
 
-class BaseWidget<T extends ChangeNotifier> extends StatefulWidget {
+class BaseScreen<T extends ChangeNotifier> extends StatefulWidget {
   final Widget Function(
     BuildContext context,
     T model,
@@ -16,7 +16,7 @@ class BaseWidget<T extends ChangeNotifier> extends StatefulWidget {
   final void Function(T model)? initModel;
   final VoidCallback? onDispose;
 
-  const BaseWidget({
+  const BaseScreen({
     required this.builder,
     required this.model,
     this.child,
@@ -26,10 +26,10 @@ class BaseWidget<T extends ChangeNotifier> extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  BaseWidgetState<T> createState() => BaseWidgetState<T>();
+  BaseScreenState<T> createState() => BaseScreenState<T>();
 }
 
-class BaseWidgetState<T extends ChangeNotifier> extends State<BaseWidget<T>> {
+class BaseScreenState<T extends ChangeNotifier> extends State<BaseScreen<T>> {
   late T model;
 
   @override
