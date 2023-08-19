@@ -6,10 +6,10 @@ class RegisPage extends StatefulWidget {
   const RegisPage({super.key});
 
   @override
-  _RegisPageState createState() => _RegisPageState();
+  RegisPageState createState() => RegisPageState();
 }
 
-class _RegisPageState extends State<RegisPage> {
+class RegisPageState extends State<RegisPage> {
   @override
   Widget build(BuildContext context) {
     TextEditingController? usernameController;
@@ -177,6 +177,7 @@ Widget _textformfield({
         debugPrint(value);
       },
       decoration: InputDecoration(
+        isDense: type == 'password' ? true : false,
         hintText: type,
         contentPadding: const EdgeInsets.all(12),
         border: InputBorder.none,

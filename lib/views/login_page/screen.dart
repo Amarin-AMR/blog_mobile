@@ -142,8 +142,8 @@ Widget _loginButton(
         width: double.infinity,
         child: ElevatedButton(
           onPressed: () {
-            print(emailController!.text.toString());
-            print(passController!.text.toString());
+            debugPrint(emailController!.text.toString());
+            debugPrint(passController!.text.toString());
           },
           style: ElevatedButton.styleFrom(
             elevation: 0,
