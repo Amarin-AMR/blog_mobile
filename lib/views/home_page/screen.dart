@@ -1,4 +1,5 @@
 import 'package:blog_mobile/views/login_page/screen.dart';
+import 'package:blog_mobile/views/regis_page/screen.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -59,7 +60,14 @@ Widget _button(
         height: 52,
         width: 300,
         child: ElevatedButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (BuildContext context) => const RegisPage(),
+              ),
+            );
+          },
           // const ButtonStyle(
           //   backgroundColor:
           //       MaterialStatePropertyAll<Color>(Colors.white),

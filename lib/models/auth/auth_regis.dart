@@ -14,6 +14,9 @@ class AuthRegis {
   @JsonKey(name: 'username')
   String? username;
 
+  @JsonKey(name: 'status', defaultValue: '')
+  String? status;
+
   @JsonKey(name: 'createAt')
   DateTime? createAt;
 
@@ -22,6 +25,7 @@ class AuthRegis {
     this.email,
     this.username,
     this.createAt,
+    this.status,
   });
 
   factory AuthRegis.fromJson(Map<String, dynamic> json) =>

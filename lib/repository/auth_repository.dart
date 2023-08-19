@@ -1,5 +1,6 @@
 import 'package:blog_mobile/models/auth/auth_regis.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 
 class AuthenticationRepository {
   final _dio = Dio();
@@ -19,6 +20,7 @@ class AuthenticationRepository {
       );
       return AuthRegis.fromJson(response.data ?? {});
     } on DioException catch (e) {
+      debugPrint(e.toString());
       throw Exception('An error occured: $e');
     }
   }
