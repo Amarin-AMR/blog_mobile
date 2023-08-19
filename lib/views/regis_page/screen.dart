@@ -205,18 +205,21 @@ Widget _regisButton({
         width: double.infinity,
         child: ElevatedButton(
           onPressed: () async {
+            final navigator = Navigator.of(context);
+            final scaffoldMessenger = ScaffoldMessenger.of(context);
             var response = await model.regisData();
 
             if (response.status == '') {
               var snackbar = const SnackBar(
                 content: Text('success'),
               );
-              ScaffoldMessenger.of(context).showSnackBar(snackbar);
+              scaffoldMessenger.showSnackBar(snackbar);
+              navigator.pop();
             } else {
               var snackbar = const SnackBar(
                 content: Text('Failed'),
               );
-              ScaffoldMessenger.of(context).showSnackBar(snackbar);
+              scaffoldMessenger.showSnackBar(snackbar);
             }
           },
           style: ElevatedButton.styleFrom(
