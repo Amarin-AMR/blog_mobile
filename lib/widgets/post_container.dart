@@ -1,7 +1,9 @@
+import 'package:blog_mobile/models/posts/post_model.dart';
 import 'package:flutter/material.dart';
 
 class PostContainer extends StatelessWidget {
-  const PostContainer({super.key});
+  final PostModel? posts;
+  const PostContainer({super.key, this.posts});
 
   @override
   Widget build(BuildContext context) {
