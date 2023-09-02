@@ -20,17 +20,27 @@ class PostContainer extends StatelessWidget {
         child: LayoutBuilder(
           builder: (context, constraint) => Column(
             children: [
-              Text(
-                posts?.authorId.toString() ?? '',
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Text(
+                    posts?.author?.name.toString() ?? '',
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ],
               ),
               const SizedBox(
                 height: 4.0,
               ),
-              Text(
-                posts?.title ?? '',
-                textAlign: TextAlign.start,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Text(
+                    posts?.title ?? '',
+                    textAlign: TextAlign.start,
+                  ),
+                ],
               ),
               const SizedBox(height: 8),
               Center(

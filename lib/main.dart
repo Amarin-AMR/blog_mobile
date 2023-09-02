@@ -1,4 +1,6 @@
+import 'package:blog_mobile/views/blog_page/viewmodel.dart';
 import 'package:blog_mobile/views/home_page/screen.dart';
+import 'package:blog_mobile/views/login_page/viewmodel.dart';
 import 'package:blog_mobile/views/regis_page/viewmodel.dart';
 import 'package:flutter/material.dart';
 
@@ -15,6 +17,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
+        ChangeNotifierProvider(
+          create: (_) => LoginViewModel(context: context),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => BlogViewModel(context: context),
+        ),
         ChangeNotifierProvider(
           create: (_) => RegisViewModel(context: context),
         )

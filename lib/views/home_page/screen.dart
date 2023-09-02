@@ -1,5 +1,5 @@
-import 'package:blog_mobile/views/blog_page/screen.dart';
 import 'package:blog_mobile/views/login_page/screen.dart';
+import 'package:blog_mobile/views/regis_page/screen.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -61,18 +61,18 @@ Widget _button(
         width: 300,
         child: ElevatedButton(
           onPressed: () {
-            // Navigator.push(
-            //   context,
-            //   MaterialPageRoute(
-            //     builder: (BuildContext context) => const RegisPage(),
-            //   ),
-            // );
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (BuildContext context) => const BlogPage(),
+                builder: (BuildContext context) => const RegisPage(),
               ),
             );
+            // Navigator.push(
+            //   context,
+            //   MaterialPageRoute(
+            //     builder: (BuildContext context) => const LoginPage(),
+            //   ),
+            // );
           },
           // const ButtonStyle(
           //   backgroundColor:
