@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (_) => RegisViewModel(context: context),
-        )
+        ),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',

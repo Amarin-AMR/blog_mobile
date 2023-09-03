@@ -11,20 +11,45 @@ class BlogViewModel extends BaseViewModel {
 
   BlogViewModel({required BuildContext context});
 
-  final String _token = '';
+  String _title = '';
+
+  String _content = '';
 
   List<PostModel>? _listPost;
 
   List<PostModel>? get listPost => _listPost ?? [];
 
+  String get title => _title;
+
+  String get content => _content;
+
+  set title(String value) {
+    _title = value;
+  }
+
+  set content(String value) {
+    _content = value;
+  }
+
   Future<void> postData() async {
     loading = true;
-    final SharedPreferences prefs = await SharedPreferences.getInstance();
-
-    final int? token = prefs.getInt('token');
     var response = await _postResponse.showPost();
     _listPost = response.listPost;
-    print(response);
+    // debugPrint(response);
+
+    loading = false;
+  }
+
+  Future<void> addPost(String title, String content) async {
+    loading = true;
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    final int? token = prefs.getInt('token');
+
+    await _postResponse.createPost(title, content, token ?? 0);
+    var response = await _postResponse.showPost();
+    _listPost = response.listPost;
+
+    debugPrint('create success');
 
     loading = false;
   }
