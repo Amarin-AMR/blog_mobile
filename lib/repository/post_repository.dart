@@ -1,13 +1,14 @@
+import 'package:blog_mobile/models/posts/post_create.dart';
+
 import 'package:blog_mobile/models/posts/post_list_response.dart';
-import 'package:blog_mobile/models/posts/post_model.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
-class AuthenticationRepository {
+class PostRepository {
   final _dio = Dio();
   final String _postPath = "http://localhost:3000/posts";
 
-  Future<PostModel> createPost(
+  Future<PostCreateResponse> createPost(
       String title, String content, int authorId) async {
     try {
       var response = await _dio.post(
@@ -18,10 +19,10 @@ class AuthenticationRepository {
           "authorId": authorId,
         },
       );
-      return PostModel.fromJson(response.data ?? {});
+      return PostCreateResponse.fromJson(response.data ?? {});
     } on DioException catch (e) {
       debugPrint(e.toString());
-      throw Exception('An error occured: $e');
+      return PostCreateResponse.fromJson({"error": e});
     }
   }
 
@@ -30,10 +31,10 @@ class AuthenticationRepository {
       var response = await _dio.get(
         _postPath,
       );
-      return PostListResponse.fromJson(response.data ?? {});
+      return PostListResponse.fromJson(response.data);
     } on DioException catch (e) {
       debugPrint(e.toString());
-      throw Exception('An error occured: $e');
+      return PostListResponse.fromJson({"error": e});
     }
   }
 }

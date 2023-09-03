@@ -1,3 +1,4 @@
+import 'package:blog_mobile/models/auth/auth_login.dart';
 import 'package:blog_mobile/models/auth/auth_regis.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -26,26 +27,26 @@ class AuthenticationRepository {
       return AuthRegis.fromJson(response.data ?? {});
     } on DioException catch (e) {
       debugPrint(e.toString());
-      throw Exception('An error occured: $e');
+      return AuthRegis.fromJson({"error": e});
     }
   }
 
-  Future<AuthRegis> requestLogin(
+  Future<AuthLogin> requestLogin(
     String username,
     String password,
   ) async {
     try {
       var response = await _dio.post(
-        _regisPath,
+        _loginPath,
         data: {
           "username": username,
           "password": password,
         },
       );
-      return AuthRegis.fromJson(response.data ?? {});
+      return AuthLogin.fromJson(response.data ?? {});
     } on DioException catch (e) {
       debugPrint(e.toString());
-      throw Exception('An error occured: $e');
+      return AuthLogin.fromJson({"error": e});
     }
   }
 }

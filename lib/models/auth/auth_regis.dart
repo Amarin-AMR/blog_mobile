@@ -6,7 +6,7 @@ part 'auth_regis.g.dart';
 @JsonSerializable()
 class AuthRegis {
   @JsonKey(name: 'name')
-  String? mobileNumber;
+  String? name;
 
   @JsonKey(name: 'email')
   String? email;
@@ -21,7 +21,7 @@ class AuthRegis {
   DateTime? createAt;
 
   AuthRegis({
-    this.mobileNumber,
+    this.name,
     this.email,
     this.username,
     this.createAt,
